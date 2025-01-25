@@ -36,31 +36,38 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link {{ request()->is('dashboard*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Point Of Sale
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-tabs nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
+              <!-- Add icons to the links using the .nav-icon class
+                   with font-awesome or any other icon font library -->
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>v1</p>
+                <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-edit"></i>
+                  <p>
+                    Categories
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>v3</p>
-                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('categories.index') }}" class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Category List</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('categories.create') }}" class="nav-link {{ request()->routeIs('categories.create') ? 'active' : '' }}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Add Category</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>          
@@ -68,7 +75,7 @@
       </nav>
       <!-- /.sidebar-menu -->
       <div class="d-flex justify-content-around position-absolute" style="bottom: 20px; left: 20px; right: 20px;">
-        <a href="profileupdate" class="btn btn-primary">Profile</a>
+        <a href="{{ route('profile.edit') }}" class="btn btn-primary {{ request()->routeIs('profile.edit') ? 'active' : '' }}">Profile</a>
         <a href="{{ route('logout') }}" class="btn btn-primary">Sign Out</a>
       </div>
     </div>

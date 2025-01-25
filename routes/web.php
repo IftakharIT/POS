@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoriesController::class, 'index'])->name('categories.index');
+    Route::get('/create', [CategoriesController::class, 'create'])->name('categories.create');
+    Route::post('/', [CategoriesController::class, 'store'])->name('categories.store');
+    Route::put('/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+    Route::delete('/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+});
+

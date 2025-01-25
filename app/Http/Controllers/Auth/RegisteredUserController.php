@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -33,13 +34,17 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'phone_number' => ['required', 'string', 'max:255'], // Added phone_number validation
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number, // Added phone_number field
             'password' => Hash::make($request->password),
+            'email_verified_at' => now(), // Added email_verified_at field
+            'remember_token' => Str::random(10), // Added remember_token field
         ]);
 
         event(new Registered($user));
