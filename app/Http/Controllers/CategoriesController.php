@@ -22,33 +22,44 @@ class CategoriesController extends Controller
 
     public function create()
     {
-        return view("POS.category.category-create", [
-            "categories"=> Categories::all()
-        ]);
+        return view("POS.category.category-create");
+
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        // Code to store a new category
-    }
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:255'
+                ]);
 
-    public function show($id)
-    {
-        // Code to display a specific category
+            if ($validator->fails()) {
+                return Redirect::back()->withErrors($validator)->withInput();
+            }
+            $category = new Categories();
+            $category->name = $request->name;
+            $category->user_id = Auth::id();                
+            $category->save();
+            return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     public function edit($id)
     {
-        // Code to show form for editing a category
+        $category = Categories::find($id);
+        return view("POS.category.category-update" , ["category"=> $category]);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        // Code to update a specific category
+        $category = Categories::find($id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
     public function destroy($id)
     {
-        // Code to delete a specific category 
+        $category = Categories::find($id);
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 }

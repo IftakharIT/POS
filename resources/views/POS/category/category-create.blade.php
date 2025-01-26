@@ -1,70 +1,66 @@
 @extends('dashboard')
 
-  @section('content')
-      <div class="content-wrapper">
-          <div class="container-fluid">
-              <!-- Content Header -->
-              <div class="content-header">
-                  <div class="container-fluid">
-                      <div class="row mb-2">
-                          <div class="col-sm-6">
-                              <h1 class="m-0">Create Category</h1>
-                          </div>
-                          <div class="col-sm-6">
-                              <ol class="breadcrumb float-sm-right">
-                                  <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                                  <li class="breadcrumb-item active">Create-Category</li>
-                              </ol>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-  
-              <!-- Main content -->
-              <section class="content">
-                  <div class="container-fluid">
-                       <div class="row">
-                        <div class="col-md-6">
-                            <div class="card p-3">
-                              <div class="card-header d-flex justify-content-between align-items-center">
-                                <h2 class="card-title text-bold">Bordered Table</h2>
-                                <a class="btn btn-success btn-md category" href="{{ route('categories.create') }}">Add Category</a>
-                              </div>
-                              <!-- /.card-header -->
-                              <div class="card-body">
-                                <table class="table table-bordered">
-                                  <thead>
-                                    <tr>
-                                      <th style="width: 30px" class="text-center">Serial</th>
-                                      <th class="w-50">Name</th>
-                                      <th class="text-center w-25">Status</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    @foreach($categories as $key => $category)
-                                    <tr>
-                                      <td class="text-center">{{ $key + 1 }}</td>
-                                      <td>{{ $category->name }}</td>
-                                      <td class="text-center"><span class="badge bg-{{ $category->status ? 'success' : 'danger' }}">{{ $category->status ? 'Active' : 'Inactive' }}</span></td>
-                                    </tr>
-                                    @endforeach                                  
-                                  </tbody>
-                                </table>
-                              </div>
-                               
-                          </div>
-                       </div>
-                  </div>
-              </section>
-          </div>
-      </div>
+@section('title', 'Create Category')
 
-    <style>
-        .card-header::after {
-            display: none;        }
-    </style>
-    
-  @endsection
+@section('content')
 
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Content Header -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-bold">Create Category</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+                            <li class="breadcrumb-item active">Category</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Category Form</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" method="POST" action="{{ route('categories.store') }}">
+                                @csrf
+                                <div class="card-body">
+                                    <div class="form-group @error('name') has-error @enderror">
+                                        <label for="name">Category Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Category Name" value="{{ old('name') }}">
+                                        @error('name')
+                                            <span class="help-block">{{ $message }}</span>
+                                        @enderror
+                                    </div>                                    
+                                    </div>                                    
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+        
+ </div>
+</div>
+
+@endsection

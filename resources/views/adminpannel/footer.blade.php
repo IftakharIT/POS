@@ -11,26 +11,26 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
-<script src="{{ ('adminpannel/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
-<script src="{{ ('adminpannel/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- overlayScrollbars -->
-<script src="{{ ('adminpannel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ ('adminpannel/dist/js/adminlte.js') }}"></script>
+<script src="{{ asset('adminpannel/dist/js/adminlte.js') }}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
-<script src="{{ ('adminpannel/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
-<script src="{{ ('adminpannel/plugins/raphael/raphael.min.js') }}"></script>
-<script src="{{ ('adminpannel/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
-<script src="{{ ('adminpannel/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/raphael/raphael.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
 <!-- ChartJS -->
-<script src="{{ ('adminpannel/plugins/chart.js/Chart.min.js') }}"></script>
+<script src="{{ asset('adminpannel/plugins/chart.js/Chart.min.js') }}"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="{{ ('adminpannel/dist/js/demo.js') }}"></script>
+<script src="{{ asset('adminpannel/dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ ('adminpannel/dist/js/pages/dashboard2.js') }}"></script>
+<script src="{{ asset('adminpannel/dist/js/pages/dashboard2.js') }}"></script>
 </body>
 </html>
