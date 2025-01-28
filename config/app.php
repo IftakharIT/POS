@@ -12,6 +12,7 @@ class DomPDFFacade extends Facade {
 
 return [
 
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

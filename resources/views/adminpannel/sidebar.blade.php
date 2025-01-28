@@ -65,7 +65,12 @@
                         <p>Invoices</p>
                     </a>
                 </li>
-                
+                <li class="nav-item">
+                    <a href="{{ route('sales.report.form') }}" class="nav-link {{ request()->routeIs('sales.report.form') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-chart-line"></i>
+                        <p>Sales Report</p>
+                    </a>
+                </li>                
             </ul>
           </li>          
         </ul>

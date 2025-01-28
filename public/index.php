@@ -2,6 +2,9 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route as RouteFacade;
+use App\Http\Controllers\SalesReportController;
 
 define('LARAVEL_START', microtime(true));
 
@@ -49,7 +52,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Kernel::class);
 
 $response = $kernel->handle(
-    $request = Request::capture()
+    $request = Request::capture()    
 )->send();
 
 $kernel->terminate($request, $response);

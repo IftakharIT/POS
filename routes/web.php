@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\SalesReportController;
 use App\Models\Product;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
@@ -62,9 +63,15 @@ Route::resource('products', ProductController::class)->middleware('auth');
 
 Route::resource('invoices', InvoiceController::class)->middleware('auth');
 
-Route::get('invoices/{invoice}/print', [InvoiceController::class, 'print'])->name('invoices.print')->middleware('auth');
-Route::get('invoices/{invoice}/download', [InvoiceController::class, 'download'])->name('invoices.download')->middleware('auth');
-Route::get('invoices/{invoice}/edit', [InvoiceController::class, 'edit'])->name('invoices.edit')->middleware('auth');
-Route::delete('invoices/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy')->middleware('auth');
+Route::prefix('invoices')->middleware('auth')->group(function () {
+    Route::get('{invoice}/print', [InvoiceController::class, 'print'])->name('invoices.print');
+    Route::get('{invoice}/download', [InvoiceController::class, 'download'])->name('invoices.download');
+    Route::get('{invoice}/edit', [InvoiceController::class, 'edit'])->name('invoices.edit');
+    Route::delete('{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
+});
 
-
+Route::prefix('sales-report')->middleware('auth')->group(function () {
+    Route::get('/', [SalesReportController::class, 'showSalesReportForm'])->name('sales.report.form');
+    Route::get('/download', [SalesReportController::class, 'downloadSalesReport'])->name('sales.report.download');
+    Route::get('/show', [SalesReportController::class, 'showSalesReport'])->name('sales.report.show');
+});

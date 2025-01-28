@@ -9,12 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Categories;
 use App\Models\Product;
-use App\Models\User;
-use App\Models\Order;
-use App\Models\OrderDetail;
 use App\Models\Invoice;
 use App\Models\Customer;
-use App\Http\Controllers\InvoiceController;
 
 class adminController extends Controller
 {
@@ -26,8 +22,6 @@ class adminController extends Controller
         $invoices = Invoice::all();
         $totalinvoice = Invoice::sum('total_amount'); //total invoice
 
-        return view('admin-dashboard', compact('customers', 'categories', 'products', 'invoices', 'totalinvoice'  ));
-
-
+        return view('admin-dashboard', compact('customers', 'categories', 'products', 'invoices', 'totalinvoice'));
     }
 }
