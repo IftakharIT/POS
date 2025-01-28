@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Facade;
 
+class DomPDFFacade extends Facade {
+    protected static function getFacadeAccessor() {
+        return 'dompdf';
+    }
+}
+
+
+
 return [
 
     /*
@@ -15,7 +23,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'MoneyUp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -213,3 +221,4 @@ return [
     ])->toArray(),
 
 ];
+

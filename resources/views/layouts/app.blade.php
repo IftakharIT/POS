@@ -22,12 +22,19 @@
 
             @include('adminpannel.navbar')
 
-            @include('adminpannel.sidebar')
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        @yield('sidebar')
+                    </div>
+                    <div class="col-md-9">
+                        <!-- Page Content -->
+                        <main>
+                            @yield('content')
+                        </main>
+                    </div>
+                </div>
+            </div>
             
             @include('adminpannel.footer')
         </div>

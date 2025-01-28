@@ -11,6 +11,10 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
+<script src="{{ asset('adminpannel/dist/js/jquery-3.7.1.js') }}"></script>
+
+<script src="{{ asset('adminpannel/dist/js/datatable.min.js') }}"></script>
+
 <script src="{{ asset('adminpannel/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ asset('adminpannel/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

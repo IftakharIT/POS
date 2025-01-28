@@ -15,10 +15,9 @@ class CategoriesController extends Controller
 {
     public function index(Request $request)
     {
-        return view("POS.category.category-list", ["categories"=> Categories::all()]);
-
-    }
-    
+        $categories = Categories::paginate(5);        
+        return view("POS.category.category-list", ["categories" => $categories]);
+    }    
 
     public function create()
     {

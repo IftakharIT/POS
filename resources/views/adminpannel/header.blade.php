@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="{{ asset('adminpannel/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('adminpannel/dist/css/adminlte.min.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('adminpannel/dist/css/dataTables.dataTables.min.css') }}">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">

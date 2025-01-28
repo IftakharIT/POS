@@ -9,8 +9,5 @@ class Categories extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'user_id',
-    ];
+    protected $fillable = ['name'];
 }
