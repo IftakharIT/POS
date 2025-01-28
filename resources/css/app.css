@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn:not(.btn-danger) {
+    background-color: #457d58;
+    border: none;
+    color: white;
+}
+
+.btn:not(.btn-danger):hover {
+    background-color: #3a6b4b;
+    color: white;
+}

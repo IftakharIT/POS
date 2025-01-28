@@ -46,7 +46,7 @@
                                                 <td class="text-center">{{ $key + 1 }}</td>
                                                 <td>{{ $category->name }}</td>
                                                 <td class="text-center">
-                                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-primary">
+                                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-success">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline">

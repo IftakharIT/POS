@@ -85,7 +85,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                        <button type="button" class="btn btn-primary" id="add-product">Add Product</button>
+                                        <button type="button" class="btn btn-success" id="add-product">Add Product</button>
                                     </div>
                                     <button type="submit" class="btn btn-success">Update Invoice</button>
                                 </form>

@@ -36,6 +36,12 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Customers</p>
@@ -66,8 +72,8 @@
       </nav>
       <!-- /.sidebar-menu -->
       <div class="d-flex justify-content-around position-absolute" style="bottom: 20px; left: 20px; right: 20px;">
-        <a href="{{ route('profile.edit') }}" class="btn btn-primary {{ request()->routeIs('profile.edit') ? 'active' : '' }}"><i class="nav-icon fas fa-user"></i> Profile</a>
-        <a href="{{ route('logout') }}" class="btn btn-primary"><i class="nav-icon fas fa-sign-out-alt"></i> Sign Out</a>
+        <a href="{{ route('profile.edit') }}" class="btn btn-success {{ request()->routeIs('profile.edit') ? 'active' : '' }}"><i class="nav-icon fas fa-user"></i> Profile</a>
+        <a href="{{ route('logout') }}" class="btn btn-success"><i class="nav-icon fas fa-sign-out-alt"></i> Sign Out</a>
       </div>
     </div>
     <!-- /.sidebar -->

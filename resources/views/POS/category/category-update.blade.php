@@ -55,7 +55,7 @@
                             <div class="row mb-3">
                                 <label for="" class="col-sm-12 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Category">
+                                    <input type="submit" class="btn btn-success waves-effect waves-light" value="Update Category">
                                 </div>
                             </div>
                         </form>

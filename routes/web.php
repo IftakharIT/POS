@@ -6,7 +6,10 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\adminController;
 use App\Models\Product;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +38,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('admin-dashboard',[adminController::class,'index'])->name('admin.dashboard')->middleware('auth');
+
 Route::prefix('categories')->group(function () {
     Route::get('/', [CategoriesController::class, 'index'])->name('categories.index')->middleware('auth');
     Route::get('/create', [CategoriesController::class, 'create'])->name('categories.create')->middleware('auth');
@@ -53,13 +58,13 @@ Route::prefix('customers')->group(function () {
     Route::delete('/{id}', [CustomersController::class, 'destroy'])->name('customers.destroy')->middleware('auth');
 });
 
-Route::resource('products', ProductController::class);
+Route::resource('products', ProductController::class)->middleware('auth');
 
-Route::resource('invoices', InvoiceController::class);
+Route::resource('invoices', InvoiceController::class)->middleware('auth');
 
-Route::get('invoices/{invoice}/print', [InvoiceController::class, 'print'])->name('invoices.print');
-Route::get('invoices/{invoice}/download', [InvoiceController::class, 'download'])->name('invoices.download');
-Route::get('invoices/{invoice}/edit', [InvoiceController::class, 'edit'])->name('invoices.edit');
-Route::delete('invoices/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
+Route::get('invoices/{invoice}/print', [InvoiceController::class, 'print'])->name('invoices.print')->middleware('auth');
+Route::get('invoices/{invoice}/download', [InvoiceController::class, 'download'])->name('invoices.download')->middleware('auth');
+Route::get('invoices/{invoice}/edit', [InvoiceController::class, 'edit'])->name('invoices.edit')->middleware('auth');
+Route::delete('invoices/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy')->middleware('auth');
 
 

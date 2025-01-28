@@ -52,7 +52,7 @@
                                                 <a href="{{ route('invoices.show', $invoice->id) }}" class="btn btn-sm btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
-                                                <a href="{{ route('invoices.edit', $invoice->id) }}" class="btn btn-sm btn-primary">
+                                                <a href="{{ route('invoices.edit', $invoice->id) }}" class="btn btn-sm btn-success">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <form action="{{ route('invoices.destroy', $invoice->id) }}" method="POST" class="d-inline">

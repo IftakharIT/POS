@@ -70,7 +70,7 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-primary">
+                                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-success">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline">

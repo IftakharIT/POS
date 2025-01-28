@@ -53,7 +53,7 @@
                                             <td>{{ $customer->email }}</td>
                                             <td>{{ $customer->phone }}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-sm btn-primary">
+                                                <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-sm btn-success">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" class="d-inline">

@@ -34,7 +34,7 @@
                                 <p>Invoice Date: {{ $invoice->invoice_date }}</p>
                                 <p>Total Amount: {{ $invoice->total_amount }}</p>
                                 <h4>Products</h4>
-                                <table class="table table-bordered">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>Product</th>
